@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Balon Matematika</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ============ MENU DEPAN ============ -->
+  <section id="menu" class="screen active">
+    <div class="card">
+      <h1>🎈 Balon Matematika</h1>
+      <p class="subtitle">Pecahkan balon dengan jawaban yang benar!</p>
+
+      <div class="field">
+        <label>Pilihan Operasi</label>
+        <div class="op-group" id="opGroup">
+          <button type="button" class="op-btn selected" data-op="+">+</button>
+          <button type="button" class="op-btn" data-op="-">−</button>
+          <button type="button" class="op-btn" data-op="x">×</button>
+          <button type="button" class="op-btn" data-op="/">÷</button>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="startNum">Angka Awal</label>
+          <select id="startNum"></select>
+        </div>
+        <div class="field">
+          <label for="endNum">Angka Akhir</label>
+          <select id="endNum"></select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="speed">Kecepatan (detik balon sampai tanah)</label>
+        <select id="speed">
+          <option value="5" selected>5 detik (pelan)</option>
+          <option value="4">4 detik</option>
+          <option value="3">3 detik</option>
+          <option value="2">2 detik (cepat)</option>
+        </select>
+      </div>
+
+      <p id="menuError" class="error"></p>
+
+      <button id="startBtn" class="big-btn">Mulai Belajar</button>
+    </div>
+  </section>
+
+  <!-- ============ LAYAR GAME ============ -->
+  <section id="game" class="screen">
+    <header class="hud">
+      <button id="quitBtn" class="small-btn" title="Kembali ke menu">✕</button>
+      <div class="hud-info">
+        <span id="progressText">Soal 1 / 81</span>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+      <span id="scoreText">⭐ 0</span>
+    </header>
+
+    <div id="sky">
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+      <div id="balloon">
+        <div class="balloon-body"><span id="question">1 + 1</span></div>
+        <div class="balloon-knot"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div id="ground"></div>
+    </div>
+
+    <div class="answer-area">
+      <div id="answerBox" class="answer-box">&nbsp;</div>
+      <div class="numpad" id="numpad">
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+        <button data-key="clear" class="fn">C</button><button data-key="0">0</button><button data-key="back" class="fn">⌫</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HASIL ============ -->
+  <section id="result" class="screen">
+    <div class="card">
+      <div id="resultEmoji" class="result-emoji">🏆</div>
+      <h1 id="resultTitle">Kamu Menang!</h1>
+      <p id="resultText" class="subtitle"></p>
+      <button id="retryBtn" class="big-btn">Main Lagi</button>
+      <button id="menuBtn" class="big-btn secondary">Menu Utama</button>
+    </div>
+  </section>
+
+  <div id="confetti"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
